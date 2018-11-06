@@ -18,7 +18,7 @@ for i in range(0,5):
 print("Move through servo range.")
 print("Push PB switch to end.")
 while ghs.switches.pb_switch.is_off():
-    for i in range(0, 5):
+    for i in range(0, 5, 1):
         index = i/5
         print("Index = " + str(index))
         ghs.servo.move(index)
