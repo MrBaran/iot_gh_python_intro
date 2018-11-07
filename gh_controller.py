@@ -28,11 +28,11 @@ while ghs.switches.push_button.is_off():
         print(threshold, end=" ")
         old_threshold = threshold
     sleep(.5)
-print("/n")
+print("\n")
 print("Turn potentiometer fully counter-clockwise.")
 while ghs.analog.pot.get_value() > 0:
     pass
-
+print()
 pos_index = 1
 # Can you create code that uses the pot to set
 # an open position for the louver that is less than 1?
@@ -47,15 +47,18 @@ print()
 #reset servo position
 ghs.servo.move(0)
 status = "CLOSED"
-while True:
+#monitoring temperature and updating louver
+while ghs.switches.push_button.is_off():
     tempF = ghs.temperature.get_inside_temp_F()
     print("temp = " + str(tempF))
     if tempF > threshold and status == "CLOSED":
         print("opening")
         ghs.servo.move(pos_index)
+        status = "OPEN"
     elif tempF < threshold and status == "OPEN":
         print("closing")
         ghs.servo.move(0)
+        status = "CLOSED"
     sleep(5)
 
 
