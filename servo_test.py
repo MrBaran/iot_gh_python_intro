@@ -12,8 +12,10 @@ print("Investigate louver and servo action")
 print("Open and close.")
 for i in range(0, 5):
     ghs.servo.move(1)
+    print("Open")
     sleep(1)
     ghs.servo.move(0)
+    print("Close")
     sleep(1)
 print("Move through servo range.")
 print("Push PB switch to end.")
@@ -30,5 +32,3 @@ while ghs.switches.push_button.is_off():
         sleep(1)
     print()
 print("Servo test completed.")
-
-ghs.switches.pb_switch.wait_fo
