@@ -12,7 +12,7 @@ print("Greenhouse controller")
 print()
 
 print("Turn potentiometer fully counter-clockwise.")
-while ghs.ain_pot.get_value() > 0:
+while ghs.analog.pot.get_value() > 0:
     pass
 
 current_temp = ghs.temperature.get_inside_temp_F()
