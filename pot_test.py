@@ -10,8 +10,8 @@ print()
 
 print("testing potentiometer values.")
 while ghs.switches.push_button.is_off():
-    pot_value = ghs.ain_pot.get_value()
-    print("Pot value: " + str(pos))
+    pot_value = ghs.analog.pot.get_value()
+    print("Pot value: " + str(pot_value))
     sleep(1)
 
 print("Pot test completed.")
