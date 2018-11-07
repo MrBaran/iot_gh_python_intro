@@ -28,7 +28,7 @@ while ghs.switches.push_button.is_off():
         print(threshold, end=" ")
         old_threshold = threshold
     sleep(.5)
-
+print("/n")
 print("Turn potentiometer fully counter-clockwise.")
 while ghs.analog.pot.get_value() > 0:
     pass
@@ -43,7 +43,10 @@ while ghs.switches.push_button.is_off():
     pos_index = pot_value/1023
     ghs.servo.move(pos_index)
     sleep(.2)
-
+print()
+#reset servo position
+ghs.servo.move(0)
+status = "CLOSED"
 while True:
     tempF = ghs.temperature.get_inside_temp_F()
     print("temp = " + str(tempF))
