@@ -32,6 +32,9 @@ print("Turn potentiometer fully counter-clockwise.")
 while ghs.ain_pot.get_value() > 0:
     pass
 
+pos_index = 1
+# Can you create code that uses the pot to set
+# an open position for the louver that is less than 1?
 print("Turn pot to set open position.")
 print("Press push-button switch when done.")
 while ghs.switches.pushbutton.is_off():
