@@ -22,14 +22,14 @@ print("Press push-button switch when done.")
 old_threshold = current_temp
 threshold = current_temp
 while ghs.switches.pushbutton.is_off():
-    pot_value = ghs.ain_pot.get_value()
+    pot_value = ghs.analog.pot.get_value()
     threshold = current_temp * pot_value/1023 * 10
     if threshold != old_threshold:
         print(threshold, end=" ")
         old_threshold = threshold
 
 print("Turn potentiometer fully counter-clockwise.")
-while ghs.ain_pot.get_value() > 0:
+while ghs.analog.pot.get_value() > 0:
     pass
 
 pos_index = 1
@@ -38,7 +38,7 @@ pos_index = 1
 print("Turn pot to set open position.")
 print("Press push-button switch when done.")
 while ghs.switches.pushbutton.is_off():
-    pot_value = ghs.ain_pot.get_value()
+    pot_value = ghs.analog.pot.get_value()
     pos_index = pot_value/1023
     ghs.servo.move(pos_index)
     sleep(.2)
