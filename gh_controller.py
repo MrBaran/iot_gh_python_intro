@@ -21,7 +21,7 @@ print("Turn pot to set threshold temperature.")
 print("Press push-button switch when done.")
 old_threshold = current_temp
 threshold = current_temp
-while ghs.switches.pushbutton.is_off():
+while ghs.switches.push_button.is_off():
     pot_value = ghs.analog.pot.get_value()
     threshold = current_temp * pot_value/1023 * 10
     if threshold != old_threshold:
@@ -37,7 +37,7 @@ pos_index = 1
 # an open position for the louver that is less than 1?
 print("Turn pot to set open position.")
 print("Press push-button switch when done.")
-while ghs.switches.pushbutton.is_off():
+while ghs.switches.push_button.is_off():
     pot_value = ghs.analog.pot.get_value()
     pos_index = pot_value/1023
     ghs.servo.move(pos_index)
