@@ -30,5 +30,5 @@ while ghs.switches.push_button.is_off():
         print("Index = " + str(index))
         ghs.servo.move(index)
         sleep(1)
-    print()
+    
 print("Servo test completed.")
