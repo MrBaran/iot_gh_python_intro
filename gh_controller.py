@@ -36,7 +36,7 @@ print()
 pos_index = 1
 # Can you create code that uses the pot to set
 # an open position for the louver that is less than 1?
-print("Turn pot to set open position.")
+print("Turn pot to set servo open position.")
 print("Press push-button switch when done.")
 while ghs.switches.push_button.is_off():
     pot_value = ghs.analog.pot.get_value()
@@ -48,7 +48,8 @@ print()
 ghs.servo.move(0)
 status = "CLOSED"
 #monitoring temperature and updating louver
-while ghs.switches.push_button.is_off():
+print("Monitoring...")
+while True:
     tempF = ghs.temperature.get_inside_temp_F()
     print("temp = " + str(tempF))
     if tempF > threshold and status == "CLOSED":
