@@ -23,10 +23,11 @@ old_threshold = current_temp
 threshold = current_temp
 while ghs.switches.push_button.is_off():
     pot_value = ghs.analog.pot.get_value()
-    threshold = current_temp * pot_value/1023 * 10
+    threshold = round(current_temp + pot_value/1023 * 10, 1)
     if threshold != old_threshold:
         print(threshold, end=" ")
         old_threshold = threshold
+    sleep(.5)
 
 print("Turn potentiometer fully counter-clockwise.")
 while ghs.analog.pot.get_value() > 0:
