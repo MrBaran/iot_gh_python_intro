@@ -13,11 +13,11 @@ print("Use your finger on sensor to warm.")
 print("Press PB switch to end.")
 while ghs.switches.push_button.is_off():
     #investigate temperature service
-    inside_temp = ghs.temperature.get_inside_tempF()
-    outside_temp = ghs.temperature.get_outside_tempF()
+    inside_temp = ghs.temperature.get_inside_temp_F()
+    outside_temp = ghs.temperature.get_outside_temp_F()
     print("Inside temp = " + str(inside_temp))
     print("Outside temp = " + str(outside_temp ))
     sleep(2)
     print()
 
-print("Pot test completed.")
+print("Temperature test completed.")
