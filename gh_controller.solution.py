@@ -36,8 +36,13 @@ print()
 pos_index = 1
 # Can you create code that uses the pot to set pos_index,
 # an open position for the louver that is less than 1?
-#--your extension here --
-
+print("Turn pot to set servo open position.")
+print("Press push-button switch when done.")
+while ghs.switches.push_button.is_off():
+    pot_value = ghs.analog.pot.get_value()
+    pos_index = pot_value/1023
+    ghs.servo.move(pos_index)
+    sleep(.2)
 print()
 #reset servo position
 ghs.servo.move(0)
